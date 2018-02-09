@@ -29,7 +29,7 @@ bot.remove_command("help")
 @bot.event
 async def on_ready():
   print("I'm ready to play Fortnite")
-  await bot.change_status(game=discord.Game(name='Fortnite: Battle Royale'))
+  await bot.change_presence(game=discord.Game(name='Fortnite: Battle Royale'))
   
   
 @bot.command()
