@@ -24,7 +24,7 @@ from discord.ext import commands
 import pynite
 
 frtoken = os.environ.get('TRN-API-KEY')
-frclient = pynite.Client('TRN-API-KEY', timeout=5)
+frclient = pynite.Client(frtoken, timeout=5)
 
 bot = commands.Bot(command_prefix='-', description="A fortnite server bot made by Aarrow7")
 bot.remove_command("help")
