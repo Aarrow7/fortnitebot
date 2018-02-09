@@ -21,6 +21,10 @@ SOFTWARE.
 import discord
 import os
 from discord.ext import commands
+import pynite
+
+frtoken = os.environ.get('TRN-API-KEY')
+frclient = pynite.Client('TRN-API-KEY', timeout=5)
 
 bot = commands.Bot(command_prefix='-', description="A fortnite server bot made by Aarrow7")
 bot.remove_command("help")
@@ -33,6 +37,13 @@ async def on_ready():
 @bot.command()
 async def serverinfo(ctx):
   await ctx.send("Fortnite Battle Arena is a server for discussing stuff about Fortnite: Battle Royale, a game created by Epic Games. We here, will give you the information regarding the game, updates and much more! You can even view your fortnite stats using this bot! Great to have you here, enjoy!")
+  
+
+@bot.command()
+async def profile(ctx, platform, name):
+  player = await client.get_player(platform, name)
+  solos = await player.get_solos()
+  await ctx.send(f"# of kills in solos for {name}: {solos.kills.value}")
   
   
 bot.run(os.environ.get("TOKEN"))
