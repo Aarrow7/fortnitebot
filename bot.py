@@ -35,3 +35,4 @@ async def serverinfo(ctx):
   await ctx.send("Fortnite Battle Arena is a server for discussing stuff about Fortnite: Battle Royale, a game created by Epic Games. We here, will give you the information regarding the game, updates and much more! You can even view your fortnite stats using this bot! Great to have you here, enjoy!")
   
   
+bot.run(os.environ.get("TOKEN"))
