@@ -22,7 +22,7 @@ import discord
 import os
 from discord.ext import commands
 import pynite
-import python box
+import pythonbox
 import aiohttp
 
 
