@@ -22,7 +22,6 @@ import discord
 import os
 from discord.ext import commands
 import pynite
-import pythonbox
 import aiohttp
 
 
