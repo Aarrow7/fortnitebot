@@ -21,10 +21,14 @@ SOFTWARE.
 import discord
 import os
 from discord.ext import commands
+import pynite
 
 
 bot = commands.Bot(command_prefix='-', description="A fortnite server bot made by Aarrow7")
 bot.remove_command("help")
+forttoken = os.environ.get("frtoken")
+client = pynite.Client(forttoken, timeout=5)
+
 
 @bot.event
 async def on_ready():
@@ -38,7 +42,10 @@ async def serverinfo(ctx):
  
 
 @bot.command()
-async def profile(ctx):
-  await ctx.send("We're currently working on Fortnite stats, please wait. Thank you!")
+async def profile(ctx, platform, name):
+  player = await client.get_player(platform, name)
+  solos = await player.get_solos()
+  await ctx.send(f"Amount of kills for {name}: {solos.kills.value}")
+
   
 bot.run(os.environ.get("TOKEN"))
