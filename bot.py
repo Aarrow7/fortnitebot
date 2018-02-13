@@ -22,6 +22,8 @@ import discord
 import os
 from discord.ext import commands
 import pynite
+import python-box
+import aiohttp
 
 
 bot = commands.Bot(command_prefix='-', description="A fortnite server bot made by Aarrow7")
